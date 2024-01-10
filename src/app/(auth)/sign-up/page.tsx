@@ -18,11 +18,10 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialValidator)
   })
 
-  const { data } = trpc.anyApiRoute.useQuery()
-  console.log(data)
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({})
 
   const onSubmit = ({email, password}: TAuthCreadentialsValidator) => {
-    
+    mutate({ email, password })
   }
 
   return (
@@ -59,6 +58,7 @@ const Page = () => {
                   <Label htmlFor='email'>Password</Label>
                   <Input
                     {...register('password')}
+                    type='password'
                     className={cn({
                       'focus-visible:ring-red-500': errors.password
                     })}
