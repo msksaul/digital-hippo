@@ -5,16 +5,16 @@ import payload, { Payload } from 'payload'
 import nodemailer from 'nodemailer'
 
 dotenv.config({
-  path: path.resolve(__dirname, '../.env')
+  path: path.resolve(__dirname, '../.env.local')
 })
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.resend.com',
+  host: process.env.SMTP_SERVER,
   secure: true,
   port: 465,
   auth: {
-    user: 'resend',
-    pass: process.env.RESEND_API_KEY
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
   }
 })
 
@@ -44,7 +44,7 @@ export const getPayloadClient = async ({initOptions}: Args = {}): Promise<Payloa
     cached.promise = payload.init({
       email: {
         transport: transporter,
-        fromAddress: 'hello@calel.dev',
+        fromAddress: process.env.EMAIL_SENDER || '',
         fromName: 'DiggitalHippo'
       },
       secret: process.env.PAYLOAD_SECRET,
