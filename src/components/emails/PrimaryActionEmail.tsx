@@ -1,4 +1,5 @@
 import { Html, Preview,Container, Img, Text, Section, Head, Button, Hr, Body, render } from '@react-email/components'
+import * as React from 'react'
 
 interface EmailTemplateProps {
   actionLabel: string
