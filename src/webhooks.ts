@@ -5,7 +5,6 @@ import { WebhookRequest } from './server'
 import { stripe } from './lib/stripe'
 import type Stripe from 'stripe'
 import { Product } from './payload-types'
-// @ts-expect-error
 import { Resend } from 'resend'
 import { ReceiptEmailHtml } from './components/emails/ReceiptEmail'
 
