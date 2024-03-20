@@ -46,9 +46,9 @@ export const stripeWebhookHandler = async (
   const { docs: users } = await payload.find({
       collection: 'users',
       where: {
-      id: {
-          equals: session.metadata.userId,
-      },
+        id: {
+            equals: session.metadata.userId,
+        },
       },
   })
 
@@ -61,7 +61,7 @@ export const stripeWebhookHandler = async (
       depth: 2,
       where: {
       id: {
-          equals: session.metadata.orderId,
+        equals: session.metadata.orderId,
       },
       },
   })
@@ -76,15 +76,15 @@ export const stripeWebhookHandler = async (
       _isPaid: true,
       },
       where: {
-      id: {
-          equals: session.metadata.orderId,
-      },
+        id: {
+            equals: session.metadata.orderId,
+        },
       },
   })
 
   try {
       const data = await resend.emails.send({
-      from: 'DigitalHippo <hello@joshtriedcoding.com>',
+      from: 'DigitalHippo',
       to: [user.email],
       subject: 'Thanks for your order! This is your receipt.',
       html: ReceiptEmailHtml({

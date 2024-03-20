@@ -14,7 +14,7 @@ import { useRouter } from 'next/navigation'
 
 const Page = () => {
 
-  const {items, removeItem} = useCart()
+  const {items, removeItem, clearCart} = useCart()
 
   const router = useRouter()
 
@@ -151,7 +151,14 @@ const Page = () => {
               <Button
                 className='w-full' 
                 size={'lg'}
-                onClick={() => createCheckoutSession({ productIds })}
+                onClick={
+                  () => {
+                      createCheckoutSession({ productIds })
+                      setTimeout(() => {
+                        clearCart()
+                      }, 2500);
+                    }
+                }
                 disabled={items.length === 0 || isLoading}
               >
                 {isLoading ? (<Loader2 className='w-4 h-4 animate-spin mr-1.5'/>): null}

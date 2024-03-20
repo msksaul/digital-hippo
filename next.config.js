@@ -7,7 +7,11 @@ const nextConfig = {
         pathname: '**',
         port: '3000',
         protocol: 'http'
-      }
+      },
+      {
+				protocol: "https",
+				hostname: "https://digital-hippo-f4lv.onrender.com",
+			},
     ]
   }
 }
