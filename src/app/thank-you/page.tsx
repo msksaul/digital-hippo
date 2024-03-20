@@ -67,8 +67,8 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
               </p>
             ) : (
               <p className='mt-2 text-base text-muted-foreground'>
-                We appreciate your order, and we&apos;re currently processing it. So hang tight
-                and we&apos;ll send your confirmation soon!
+                We appreciate your order.
+                Your order was processed and you assets are available to download below.
               </p>
             )}
 
@@ -99,7 +99,7 @@ const ThankYouPage = async ({ searchParams }: PageProps) => {
                           <p className='my-1'>Category: {label}</p>
                         </div>
 
-                        {order._isPaid ? (
+                        {!order._isPaid ? (
                           <a href={downloadUrl} download={product.name} className='text-blue-600 hover:underline underline-offset-2'>
                             Download asset
                           </a>
