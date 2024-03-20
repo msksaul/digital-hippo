@@ -156,7 +156,7 @@ const Page = () => {
                       createCheckoutSession({ productIds })
                       setTimeout(() => {
                         clearCart()
-                      }, 2500);
+                      }, 2000);
                     }
                 }
                 disabled={items.length === 0 || isLoading}
