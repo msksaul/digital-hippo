@@ -15,8 +15,8 @@ export const stripeWebhookHandler = async (
   res: express.Response
 ) => {
 
-  const webhookRequest = req as any as WebhookRequest
-  const body = webhookRequest.rawBody
+  const webhookRequest = (req as any).rawBody || req.body
+  const body = webhookRequest
   const signature = req.headers['stripe-signature'] || ''
 
   let event
