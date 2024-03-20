@@ -47,7 +47,7 @@ const start = async () => {
   cartRouter.get('/', (req, res) => {
     const request = req as PayloadRequest
 
-    if(!request.user) return res.redirect('sign-in?origin=cart')
+    if(!request.user) return res.redirect('/sign-in?origin=cart')
 
     const parseUrl = parse(req.url, true)
 
