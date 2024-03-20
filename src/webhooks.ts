@@ -16,14 +16,14 @@ export const stripeWebhookHandler = async (
 ) => {
 
   const webhookRequest = req as any as WebhookRequest
-  const body = webhookRequest
+  const body = webhookRequest.rawBody
   const signature = req.headers['stripe-signature'] || ''
 
   let event
   try {
   event = stripe.webhooks.constructEvent(
       body,
-      signature,
+      signature?.toString(),
       process.env.STRIPE_WEBHOOK_SECRET || ''
   )
   } catch (err) {
