@@ -18,6 +18,7 @@ export const useCart = create<CartState>()(
     (set) => ({
       items: [],
       addItem: (product) => set((state) => {
+        if(state.items.some(p => p.product.id === product.id)) return { items: [...state.items]}
         return { items: [...state.items, { product }] }
       }),
       removeItem: (id) => set((state) => ({
