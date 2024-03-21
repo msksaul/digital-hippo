@@ -15,7 +15,7 @@ export const EmailTemplate = ({actionLabel, buttonText, href}: EmailTemplateProp
       <Body style={main}>
           <Container style={container}>
           <Img
-              src={`${process.env.NEXT_PUBLIC_SERVER_URL}/thumbnail.png`}
+              src={`${process.env.NEXT_PUBLIC_SERVER_URL}/thumbnail.jpg`}
               width="150"
               height="150"
               alt="DigitalHippo"
