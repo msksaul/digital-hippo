@@ -39,7 +39,7 @@ const Page = () => {
       toast.success('Signed in successfully')
 
       if(origin) {
-        router.push(`(${origin})`)
+        router.push(`/${origin}`)
         return
       }
 
