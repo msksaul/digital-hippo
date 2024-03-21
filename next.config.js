@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
 				protocol: "https",
-				hostname: "digital-hippo-f4lv.onrender.com",
+				hostname: "https://digital-hippo-eta.vercel.app/",
 			},
     ]
   }
