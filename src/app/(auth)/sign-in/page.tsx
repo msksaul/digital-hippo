@@ -12,7 +12,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { AuthCredentialValidator, TAuthCreadentialsValidator } from '@/lib/validators/account-credentials-validator'
 import { trpc } from '@/trpc/client'
 import { toast } from 'sonner'
-import { ZodError } from 'zod'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 const Page = () => {
@@ -37,6 +36,7 @@ const Page = () => {
   const { mutate: signIn, isLoading } = trpc.auth.signIn.useMutation({
     onSuccess: () => {
       toast.success('Signed in successfully')
+      router.refresh()
 
       if(origin) {
         router.push(`/${origin}`)
@@ -49,7 +49,6 @@ const Page = () => {
       }
 
       router.push('/')
-      router.refresh()
     },
 
     onError: (err) => {
@@ -74,7 +73,7 @@ const Page = () => {
             </h1>
 
             <Link className={buttonVariants({variant: 'link', className: 'gap-1.5'})} href={'/sign-up'}>
-              Don&apos;t have an account?? Sign-up
+              Don&apos;t have an account? Sign-up
               <ArrowRight className='h-4 w-4'/>
             </Link>
           </div>
