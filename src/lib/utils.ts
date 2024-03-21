@@ -58,7 +58,7 @@ export function constructMetadata({
       creator: '@joshtriedcoding',
     },
     icons,
-    metadataBase: new URL('https://digital-hippo-f4lv.onrender.com'),
+    metadataBase: new URL('https://digital-hippo-eta.vercel.app/'),
     ...(noIndex && {
       robots: {
         index: false,
