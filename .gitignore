@@ -16,8 +16,6 @@
 # production
 /build
 dist/
-src/media
-src/product_files
 
 # misc
 .DS_Store
